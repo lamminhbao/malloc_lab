@@ -1,0 +1,36 @@
+63 list small
+1 list large
+
+malloc 
+{
+	if size < 512
+	{
+		su dung list voi size tuong ung;
+		neu list co phan tu
+			pick first one;
+	}
+	else
+	{
+		neu list co phan tu
+			victim = tim best fit
+			remove from list;
+			remainder = victim - size;
+			if (size < 512)
+				add vao small list
+			else
+				add vao large list
+	}
+	su dung top chunk
+}
+
+free
+{
+	if size < 512
+	{
+		add vao list tuong ung
+	}
+	else
+	{
+		add vao large list;
+	}
+}
